@@ -1,17 +1,12 @@
 body {
-  background-color: #f7f7f7;
-  &:before {
-    content: '';
-    height: 100%;
-    display: inline-block;
-    vertical-align: middle;
-  }
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 :global(#app) {
   display: inline-block;
-  vertical-align: middle;
-  padding: 0 px(100);
-  text-align: center;
-  width: 99%;
+  padding: 0 px(70);
+  width: 100%;
 }
