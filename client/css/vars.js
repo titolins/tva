@@ -1,5 +1,6 @@
 module.exports = {
-  mainColor: '#666',
-  yellow: '#ffc639',
-  red: '#fb2c10'
+  white: '#fff',
+  blue: '#251d5d',
+  green: '#003a25',
+  grey: 'a8a5c0',
 };
