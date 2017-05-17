@@ -6,12 +6,29 @@ export const Languages = {
 const Content = {
   PT_BR: {
     mainContent: {
-      test: 'TESTE'
+      test: 'teste'
+    },
+    navbar: {
+      about: 'sobre trancoso',
+      contact: 'contato',
+      sales: 'vendas',
+      rent: 'aluguel',
+      comercialRent: 'aluguel comercial',
+      services: 'serviços'
     }
+
   },
   EN_US: {
     mainContent: {
-      test: 'TEST'
+      test: 'test'
+    },
+    navbar: {
+      about: 'about trancoso',
+      contact: 'contact',
+      sales: 'sales',
+      rent: 'rent',
+      comercialRent: 'comercial rent',
+      services: 'services'
     }
   }
 }
