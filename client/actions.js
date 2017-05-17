@@ -17,7 +17,7 @@ export function setConfig(config) {
 }
 
 // translation
-export function chooseLanguage(lang) {
+export function selectLanguage(lang) {
   return {
     type: CHOOSE_LANGUAGE,
     lang
