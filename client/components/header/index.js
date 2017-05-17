@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ChooseLanguage from '../../containers/ChooseLanguage';
 import Logo from '../logo';
+import Navbar from '../navbar';
 
 import { header } from './styles';
 
@@ -9,7 +9,7 @@ export default class Header extends Component {
     return (
       <div className={ header }>
         <Logo />
-        <ChooseLanguage />
+        <Navbar contentId="navbar" />
       </div>
     )
   }
