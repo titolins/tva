@@ -1,0 +1,15 @@
+.logo {
+  height: 100%;
+  width: 30%;
+  display: inline;
+  & > span {
+    height: 100%;
+    float: left;
+  }
+}
+
+.logoText {
+  color: $green;
+  text-align: center;
+  margin-top: px(40);
+}
