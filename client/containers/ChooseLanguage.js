@@ -1,25 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { chooseLanguage } from '../actions';
+import { selectLanguage } from '../actions';
 import { Languages } from './Content';
 
-let ChooseLanguage = ({ dispatch }) => {
-  return (
-    <div>
-      <a href="#" onClick={e => {
-        e.preventDefault();
-        dispatch(chooseLanguage(Languages.PT));
-        }}
-      >PT</a> 
-      <a href="#" onClick={e => {
-        e.preventDefault();
-        dispatch(chooseLanguage(Languages.EN));
-        }}
-      >EN</a>
-    </div>
-  )
+import LanguageSelector from '../components/navbar/languageselector';
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onClick: () => {
+      dispatch(selectLanguage(Languages[ownProps.lang]))
+    }
+  }
 }
 
-ChooseLanguage = connect()(ChooseLanguage)
+const mapStateToProps = (state, ownProps) => {
+  return {
+    active: (state.lang.selected === Languages[ownProps.lang]),
+    lang: ownProps.lang
+  }
+}
+
+const ChooseLanguage = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LanguageSelector)
 
 export default ChooseLanguage
