@@ -12,6 +12,7 @@ type API struct{}
 // Bind attaches api routes
 func (api *API) Bind(group *echo.Group) {
 	group.GET("/v1/conf", api.ConfHandler)
+	group.POST("/login", login)
 }
 
 // ConfHandler handle the app config, for example
