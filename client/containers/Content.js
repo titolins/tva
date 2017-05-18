@@ -3,7 +3,7 @@ export const Languages = {
   EN: 'EN_US'
 }
 
-const Content = {
+export const Content = {
   PT_BR: {
     mainContent: {
       test: 'teste'
