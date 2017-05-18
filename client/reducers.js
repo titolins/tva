@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
-import { SET_CONFIG, CHOOSE_LANGUAGE } from './actions';
-import { Languages } from './containers/Content';
+import { SET_CONFIG, CHOOSE_LANGUAGE, ADD_CONTENT } from './actions';
+import { Languages, Content } from './containers/Content';
 
 const { PT } = Languages;
 
 const initialState = {
-  selected: PT
+  selected: PT,
+  content: Content
 }
 
 function config(state = {}, action) {
@@ -21,9 +22,26 @@ function lang(state = initialState, action) {
   switch (action.type) {
     case CHOOSE_LANGUAGE:
       return Object.assign({}, state, {
-        selected: action.lang,
-        //content: action.content
+        selected: action.lang
       })
+    default:
+      return state
+  }
+}
+
+function content(state = initialState, action) {
+  switch (action.type) {
+    case ADD_CONTENT:
+        /*
+      let pt = Object.assign({}, state.content[Languages[PT]], action.content.PT);
+      let en = Object.assign({}, state.content[Languages[EN]], action.content.EN);
+      return Object.assign({}, state, { content: {
+          PT_BR: pt,
+          EN_US: en
+        }
+      })
+      */
+      return state
     default:
       return state
   }
@@ -31,5 +49,6 @@ function lang(state = initialState, action) {
 
 export default combineReducers({
   config,
-  lang
+  lang,
+  content
 });
