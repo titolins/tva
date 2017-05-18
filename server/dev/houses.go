@@ -9,6 +9,9 @@ var DevData = []models.House{
         Category: "1",
         Featured: true,
         Capacity: 4,
+        Cover: models.Picture{ Url: "https://placehold.it/550x338" },
+        Pictures: []models.Picture{
+            models.Picture{ Url: "https://placehold.it/550x338" }},
         Content: models.TranslatableContent{
             PT: models.Content{
                     Name: "casa 1",
