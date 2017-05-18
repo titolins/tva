@@ -18,7 +18,6 @@ func (api *API) Bind(group *echo.Group) {
     group.GET("/houses", api.GetHousesHandler)
     group.GET("/houses/category", api.GetHousesByCategoryHandler)
     group.GET("/houses/featured", api.GetFeaturedHousesHandler)
-
 }
 
 // ConfHandler handle the app config, for example
