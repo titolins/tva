@@ -106,4 +106,6 @@ Response.prototype.text = function() {
   });
 }
 
+Promise = require('promise');
+
 Fetch.Promise = typeof Promise !== 'undefined' ? Promise : require('when').Promise;
