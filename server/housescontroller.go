@@ -2,48 +2,25 @@ package main
 
 import (
     //"github.com/labstack/echo"
+    "github.com/titolins/trancosovendasaluguel/server/models"
+    "github.com/titolins/trancosovendasaluguel/server/dev"
 )
 
-type House struct {
-    Name string
-    Category string
-    Description string
-    Features []string
-    Featured bool
-}
 
-func buildDevData() []House {
-    return []House{
-        House{ Name: "Casa 1",
-               Category: "1",
-               Description: "descricao casa",
-               Features: []string{ "wifi",
-                                   "Ar condicionado" },
-               Featured: true },
-        House{ Name: "Casa 2",
-               Category: "1",
-               Description: "descricao casa",
-               Features: []string{ "wifi",
-                                   "Ar condicionado" },
-               Featured: true },
-    }
-
-}
-
-func GetAllHouses() []House {
+func GetAllHouses() []models.House {
     // get's all houses
-    return buildDevData()
+    return dev.DevData
 }
 
-func GetCategoryHouses(cId string) []House {
+func GetCategoryHouses(cId string) []models.House {
     // get's houses by their category (sales, rent, etc.)
-    return buildDevData()
+    return dev.DevData
 }
 
-func GetFeaturedHouses(cId string) []House {
+func GetFeaturedHouses(cId string) []models.House {
     // method for getting featured houses for display at the main page
     // requires a category id, considering that we won't be needing all
     // featured houses at once
-    return buildDevData()
+    return dev.DevData
 }
 
