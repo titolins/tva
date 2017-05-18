@@ -1,10 +1,10 @@
 package main
 
 var (
-	// Debug var to switch mode from outside
-	debug string
-	// CommitHash exported to assign it from main.go
-	commitHash string
+    // Debug var to switch mode from outside
+    debug string
+    // CommitHash exported to assign it from main.go
+    commitHash string
 )
 
 // Most easiest way to configure
@@ -22,4 +22,5 @@ api:
   prefix: /api
 duktape:
   path: static/build/bundle.js
+dbUrl: localhost
 `
