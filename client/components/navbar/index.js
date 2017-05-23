@@ -6,11 +6,54 @@ import { mapStateToProps } from '../../containers/Content';
 
 import ChooseLanguage from '../../containers/ChooseLanguage';
 
-import { spacer, cf, menu, dropdown, navbar, upperOpts, mainOpts } from './styles';
+import {
+  dropdownItem,
+  spacer,
+  cf,
+  menu,
+  dropdown,
+  navbar,
+  upperOpts,
+  mainOpts
+} from './styles';
 
-let Navbar = ({ content }) => {
-  return (
-    <nav className={navbar}>
+
+class Navbar extends Component {
+
+  buildDropdownMenu = (menuItems) => {
+    return (
+      <div className={ menu }>
+        <span className={ spacer }></span>
+        {menuItems.map((item) => {
+          return (
+            <span className={ dropdownItem }>
+              <a href="#"><h4>{ item.title }</h4></a>
+              <span className={ spacer }></span>
+            </span>
+          )
+        })}
+      </div>
+    )
+  }
+
+  componentDidMount() {
+    console.log("component did mount");
+    console.log(this.props);
+    fetch("/api/houses")
+    .then((response) => {
+      console.log(response);
+      response.json();
+    }).then((responseJson) => {
+      console.log(responseJson);
+    })
+  }
+
+  render() {
+    let { content } = this.props;
+    let salesComponents = this.buildDropdownMenu(content.sales.items || []);
+
+    return (
+      <nav className={navbar}>
         <div className={upperOpts}>
           <ul className={ cf }>
             <li><ChooseLanguage lang="EN"/></li>
@@ -25,25 +68,40 @@ let Navbar = ({ content }) => {
             <li><a href="#"><h4>{ content.comercialRent }</h4></a></li>
             <li><a href="#"><h4>{ content.rent }</h4></a></li>
             <li className={ dropdown }>
-              <a href="#"><h4>{ content.sales }</h4></a>
-              <div className={ menu }>
-                <span className={ spacer }></span>
-                <a href="#"><h4>abcdefghijklmno</h4></a>
-                <span className={ spacer }></span>
-                <a href="#"><h4>abcd</h4></a>
-                <span className={ spacer }></span>
-                <a href="#"><h4>testing</h4></a>
-                <span className={ spacer }></span>
-                <a href="#"><h4>wooow</h4></a>
-                <span className={ spacer }></span>
-              </div>
+              <a href="#"><h4>{ content.sales.title }</h4></a>
+              { salesComponents }
             </li>
           </ul>
         </div>
       </nav>
-  )
+    )
+  }
+
 }
 
 Navbar = connect(mapStateToProps)(Navbar)
+
+
+/*
+Navbar.contextTypes = {
+  redux: React.PropTypes.object
+}
+
+Navbar.componentDidMount = () => {
+  console.log("ok transition");
+  //console.log(this.context.redux);
+  fetch("/api/houses")
+  .then((response) => {
+    console.log(response);
+    response.json();
+  }).then((responseJson) => {
+    console.log(responseJson);
+  })
+}
+*/
+
+Navbar.contextTypes = {
+  redux: React.PropTypes.object
+}
 
 export default Navbar

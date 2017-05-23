@@ -11,31 +11,10 @@ export default class Homepage extends Component {
   /*eslint-disable */
   static onEnter({store, nextState, replaceState, callback}) {
     // Load here any data.
-
-    fetch("/api/houses",{
-      method: 'GET',
-      dataType: 'jsonp'
-    })
-      .then((response) => {
-        response.json();
-        console.log(response);
-        console.log(response.keys());
-        console.log(response.length);
-      }).then((responseJson) => {
-        console.log(responseJson.keys());
-        console.log(responseJson.length);
-        store.dispatch(addContent(responseJson));
-      }).then(() => {
-        callback(); // this call is important, don't forget it
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
-
+    callback(); // this call is important, don't forget it
     //
+    /*eslint-enable */
   }
-  /*eslint-enable */
 
   render() {
     return <div>
