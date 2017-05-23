@@ -2,7 +2,7 @@ package main
 
 import (
     "github.com/labstack/echo"
-    "log"
+    "github.com/titolins/trancosovendasaluguel/server/controllers"
 )
 
 // API is a defined as struct bundle
@@ -27,14 +27,13 @@ func (api *API) ConfHandler(c echo.Context) error {
 }
 
 func (api *API) GetHousesHandler(c echo.Context) error {
-    return c.JSON(200, GetAllHouses())
+    return c.JSON(200, controllers.GetAllHouses())
 }
 
 func (api *API) GetHousesByCategoryHandler(c echo.Context) error {
-    log.Print(c.Param("categoryId"))
-    return c.JSON(200, GetCategoryHouses(c.Param("categoryId")))
+    return c.JSON(200, controllers.GetCategoryHouses(c.Param("categoryId")))
 }
 
 func (api *API) GetFeaturedHousesHandler(c echo.Context) error {
-    return c.JSON(200, GetFeaturedHouses(c.Param("categoryId")))
+    return c.JSON(200, controllers.GetFeaturedHouses(c.Param("categoryId")))
 }
