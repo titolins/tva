@@ -11,7 +11,9 @@ export const Content = {
     navbar: {
       about: 'sobre trancoso',
       contact: 'contato',
-      sales: 'vendas',
+      sales: {
+        title: 'vendas',
+        items: [] },
       rent: 'aluguel',
       comercialRent: 'aluguel comercial',
       services: 'serviços'
@@ -25,7 +27,9 @@ export const Content = {
     navbar: {
       about: 'about trancoso',
       contact: 'contact',
-      sales: 'sales',
+      sales: {
+        title: 'sales',
+        items: [] },
       rent: 'rent',
       comercialRent: 'comercial rent',
       services: 'services'
