@@ -19,7 +19,6 @@ import {
 
 
 class Navbar extends Component {
-
   buildDropdownMenu = (menuItems) => {
     return (
       <div className={ menu }>
@@ -38,15 +37,15 @@ class Navbar extends Component {
 
   componentDidMount() {
     console.log("component did mount");
-    console.log(this.props);
     fetch("/api/houses")
-    .then((response) => {
-      console.log(response);
-      response.json();
-    }).then((responseJson) => {
-      console.log(responseJson);
-    })
+      .then((response) => {
+        console.log(response)
+        response.text()
+      }).then((responseJson) => {
+        console.log(responseJson);
+      })
   }
+
 
   render() {
     let { content } = this.props;
@@ -99,9 +98,5 @@ Navbar.componentDidMount = () => {
   })
 }
 */
-
-Navbar.contextTypes = {
-  redux: React.PropTypes.object
-}
 
 export default Navbar
