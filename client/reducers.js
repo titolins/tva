@@ -21,9 +21,14 @@ function config(state = {}, action) {
 function lang(state = initialState, action) {
   switch (action.type) {
     case CHOOSE_LANGUAGE:
+        /*
       return Object.assign({}, state, {
         selected: action.lang
       })
+      */
+      let newState = state;
+      newState.selected = action.lang;
+      return newState;
     default:
       return state
   }
